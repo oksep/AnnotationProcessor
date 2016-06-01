@@ -1,5 +1,14 @@
 apply plugin: 'java'
 
+// special the main class
+// run   ./gradlew -p lib assemble      to build jar
+// run   java -jar lib.jar "p1" "p2"    for test
+jar {
+    manifest {
+        attributes 'Main-Class': 'cn.septenary.Hello'
+    }
+}
+
 // This is important even if Android Studio claims it isn't
 // used. Android can't interpret Java 8 byte code.
 sourceCompatibility = JavaVersion.VERSION_1_7
